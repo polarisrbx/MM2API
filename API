@@ -2,11 +2,22 @@
 -- HOWEVER THE SCRIPT IS NOT
 -- USE THE ACTUAL SCRIPT @ https://discord.gg/878PvU7zja
 
-local polaris = {}
+-- API Usage is CASE SENSITIVE!
+-- Do not sell as your own
+
+-- small rn ima add more stuff to the api as i go
+-- i only update this api to update polaris this isn't a tool im putting out for mm2 script developers im just making it public cuz im too lazy to obf this every update
+-- so dont expect updates that wont be used for something in polaris [or support with help for it in ur own scripts figure it out dumbass skid]
+
+-- any questions comments or concerns dm @oksavr on discord
+
+
+local Polaris = {}
 
 local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
 
-function polaris.getRoles()
+function Polaris.getRoles()
     local roles = {}
     
     for _, player in pairs(Players:GetPlayers()) do
@@ -36,4 +47,27 @@ function polaris.getRoles()
     return roles
 end
 
-return polaris
+function Polaris.getCoinPositions()
+        local coinContainer
+        for _, obj in pairs(Workspace:GetChildren()) do
+            if obj:IsA("Model") and obj:FindFirstChild("CoinContainer") then
+                coinContainer = obj.CoinContainer
+                break
+            end
+        end
+        
+        if not coinContainer then
+            warn("coins not spawned yet")
+            return {}
+        end
+        
+        local positions = {}
+        for _, coin in pairs(coinContainer:GetChildren()) do
+            if coin:IsA("BasePart") then
+                table.insert(positions, coin.CFrame)
+                print("Coin at: ", coin.CFrame)
+            end
+        end
+end
+
+return Polaris

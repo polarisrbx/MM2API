@@ -1,0 +1,35 @@
+local polaris = {}
+
+local Players = game:GetService("Players")
+
+function polaris.getRoles()
+    local roles = {}
+    
+    for _, player in pairs(Players:GetPlayers()) do
+        local role = "Innocent"
+        
+        local backpack = player:FindFirstChild("Backpack")
+        if backpack then
+            if backpack:FindFirstChild("Knife") then
+                role = "Murderer"
+            elseif backpack:FindFirstChild("Gun") then
+                role = "Sheriff"
+            end
+        end
+        
+        local character = player.Character
+        if character then
+            if character:FindFirstChild("Knife") then
+                role = "Murderer"
+            elseif character:FindFirstChild("Gun") then
+                role = "Sheriff"
+            end
+        end
+        
+        roles[player.Name] = role
+    end
+    
+    return roles
+end
+
+return polaris

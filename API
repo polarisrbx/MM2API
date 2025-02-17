@@ -1,6 +1,25 @@
 -- Old, discontinued MM2 script API
 -- very feature limited because i made this but scrapped it when i realized mm2 is a dead game 😭
 
+-- WILL NEVER BE UPDATED ! (Probably)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--█▀█ █▀█ █░░ ▄▀█ █▀█ █ █▀
+--█▀▀ █▄█ █▄▄ █▀█ █▀▄ █ ▄█
+
 -- API IS FREE TO SKID I DONT GIVE 2 FUCKS
 -- HOWEVER THE SCRIPT IS NOT
 
@@ -71,5 +90,7 @@ function Polaris.getCoinPositions()
             end
         end
 end
+
+warn("Polaris - API Successfully loaded")
 
 return Polaris
